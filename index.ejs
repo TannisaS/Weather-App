@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+</head>
+<body>
+    <div class="eve">
+    <div class="container"><h1>Weather app</h1></div>
+    <div class="container1">
+    <form id="myform" method="post">
+        <label for="city">CITY</label>
+        <input type="text" id="city" name="city">
+        <input id="get" type="submit" value="GET WEATHER" formaction="/get-weather">
+    </form>
+    </div>
+</div>
+    <p>
+        <%if(locals.content){%>
+            <div class="place">
+                <h1 id="abc"> Weather of <%=cityy%> </h1>
+            </div>
+            
+            <div class="main-div">
+                <div class="ro1">
+                    <div class="square temp">
+                        <div>
+                            <i class="em em-thermometer" aria-role="presentation" aria-label=""></i>
+                            : <%=content.temp%>
+                        </div>
+                        <div class="wri">
+                            Temperature
+                        </div>
+                    </div>
+                    <div class="square hum">
+                        <div>
+                            <i class="em em-droplet" aria-role="presentation" aria-label="DROPLET"></i>
+                            : <%=content.humidity%>
+                        </div>
+                        <div class="wri">
+                            Humidity
+                        </div>
+                        
+                    </div>
+                    <div class="square win2">
+                        <div>
+                            <i class="em em-city_sunrise" aria-role="presentation" aria-label="SUNSET OVER BUILDINGS"></i>
+                            : <%var timestamp=content.sunset
+                            var date = new Date(timestamp * 1000);
+                            var hours = date.getHours();
+                            var minutes = date.getMinutes();
+                            if(hours<10)
+                            hours="0"+hours
+                            if(minutes<10)
+                            minutes="0"+minutes%>
+                            <%=(hours+" : "+minutes)%>
+                        </div>
+                        <div class="wri">
+                            Sunset
+                        </div>
+                     </div>
+                </div>
+                <div class="ro2">
+                    <div class="square sum1" >
+                        <div>
+                            <i class="em em-sunrise" aria-role="presentation" aria-label="SUNRISE"></i>
+                            : <%var timestamp=content.sunrise
+                                var date = new Date(timestamp * 1000);
+                                var hours = date.getHours();
+                                var minutes = date.getMinutes();
+                                if(hours<10)
+                                hours="0"+hours
+                                if(minutes<10)
+                                minutes="0"+minutes%>
+                            <%=(hours+" : "+minutes)%>
+                        </div>
+                        <div  class="wri">
+                            Sunrise
+                        </div>
+                    </div>
+                    <div class="square cloud">
+                        <div>
+                            <i class="em em-partly_sunny_rain" aria-role="presentation" aria-label=""></i>
+                            :<%=content.cloud_pct%>
+                        </div>
+                        <div class="wri">
+                            Cloud %
+                        </div>
+                        
+                    </div>
+                    <div class="square fl">
+                        <div>
+                            <i class="em em-sunny" aria-role="presentation" aria-label="BLACK SUN WITH RAYS"></i>
+                            : <%=content.feels_like%>
+                        </div>
+                        <div class="wri">
+                            Feels Like
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+            
+        
+            <%}%>
+        <% if(locals.error){%>
+            <%=error%>
+            <%}%>
+    </p>
+    </div>
+    
+</body>
+</html>

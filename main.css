@@ -1,0 +1,50 @@
+
+body
+{
+    background-image: url("img/1.jpg");
+    
+}
+.container
+{
+    display: flex;
+    justify-content: center;
+    
+}
+.container1
+{
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+}
+.ro1{
+    justify-content: center;
+    display:flex;
+    font-family: "Gamja Flower";
+}
+.ro2{
+    justify-content: center;
+    display: flex;
+}
+.place{
+    display: flex;
+    justify-content: center;
+}
+.square {
+    display: flex;
+    flex-direction: column;
+    width: 200px; 
+    height: 200px;
+    margin: 10px; 
+    float: left;
+    border-radius: 10%;
+    font-size:30px; 
+    font-weight: bold;
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(35, 196, 210);
+  }  
+
+.wri{
+    font-weight: normal;
+    font-size: medium;
+}
